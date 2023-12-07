@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teperature Converter</title>
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
+    <script>
+        function ConvertFahrenhiet(){
+            var C = document.getElementById("degCel").value;
+            var result = document.getElementById("resultFahren");
+            var F = (9*C+(32*5))/5;
+            result.value = `${F}`;
+        }
+    </script>
+</head>
+<body class="container-fluid">
+     <div class="border border-info m-5 bg-info pb-5">
+        <h1 class="text-center mt-3">Degree Celcius To Fahrenheit Converter</h1>
+        <br><br>
+        <div class="d-flex gap-3 justify-content-center">
+            <label class="form-label mt-2 fw-bold">CELCIUS</label> <input type="text" onblur="ConvertFahrenhiet()" class="form-control w-25" id="degCel">
+            <label class="form-label mt-2 fw-bold">= FAHRENHEIT</label> <input type="text" class="form-control w-25" id="resultFahren">
+        </div>
+        
+     </div>
+</body>
+</html>

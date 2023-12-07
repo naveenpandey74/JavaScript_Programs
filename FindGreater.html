@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basic Programs</title>
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
+    <script>
+           function GreatestClick(){
+            var a = document.getElementById("FirstNumber").value;
+            var b = document.getElementById("SecondNumber").value;
+            var result = document.getElementById("lblResult");
+             if(a == b){
+                result.innerHTML = "Both Equal !";
+             }else{
+                if(a>b){
+                    result.innerHTML = `${a} is Greater than ${b}`;
+                }else{
+                    result.innerHTML = `${b} is Greater than ${a}`;
+                }
+             }
+           }
+           function GreatAmong(){
+             var num1 = document.getElementById("nOne").value;
+             var num2 = document.getElementById("nTwo").value;
+             var num3 = document.getElementById("nThree").value;
+             let result = document.getElementById("lblResultOne");
+            if(num1>num2 && num1>num3){
+                result.innerHTML = `${num1} is Greater than ${num2} and ${num3}`;
+             } else if (num2>num3){
+                result.innerHTML = `${num2} is Greater than ${num1} and ${num3}`;
+             } else {
+                result.innerHTML = `${num3} is Greater than ${num1} and ${num2}`;
+             }
+           }
+    </script>
+</head>
+<body class="container-fluid">
+    <div class="p-3">
+        <h2>Greatest Between Two Numbers</h2>
+        <br>
+        <div class="input-group w-50">
+            <input type="text" id="FirstNumber" class="form-control" size="2">
+            <input type="text" id="SecondNumber" class="form-control" size="2">
+            <button onclick="GreatestClick()" class="btn btn-info">Find</button> 
+        </div>
+        <div>
+            <span class="ms-5 h2 mt-2 fw-bold" id="lblResult"></span>
+        </div> 
+    </div>
+    <div>
+        <h2>Greatest Among Three Numbers</h2>
+        <br>
+        <div class="input-group w-50">
+            <input type="text" id="nOne" class="form-control" size="2">
+            <input type="text" id="nTwo" class="form-control" size="2">
+            <input type="text" id="nThree" class="form-control" size="2">
+            <button onclick="GreatAmong()" class="btn btn-warning">Find</button>
+        </div>
+        <div>
+            <span class="ms-5 h2 mt-2 fw-bold" id="lblResultOne"></span>
+        </div> 
+    </div>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aria of Triangle</title>
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
+    <script type="text/javascript">
+        function AreaClick(){
+           var side1 = document.getElementById("txtSide1").value;
+           var side2 = document.getElementById("txtSide2").value;
+           var side3 = document.getElementById("txtSide3").value;
+           var s = (side1+side2+side3)/2; //semiperimeter
+           var area = Math.sqrt(s*((s-side1)*(s-side2)*(s-side3)));
+           var img = document.getElementById("lblImg");
+           img.src = "public/images/triangle.png";
+           img.style.display = "block";
+           document.getElementById("lblResult").innerHTML = `Hi! Naveen Your Triangle Area is ${area}`;
+        }
+           
+    </script>
+</head>
+<body class="container-fluid">
+    <div class="row">
+        <div class="col-6 w-50 bg-dark text-white p-5">
+            <div>
+                <h1>Area Of Triangle</h1>
+                <dl>
+                    <dt>Side 1</dt>
+                    <dd><input class="form-control" id="txtSide1" type="text" placeholder="Enter Side 1"></dd>
+                    <dt>Side 2</dt>
+                    <input type="text" id="txtSide2" placeholder="Enter Side 2" class="form-control">
+                    <dt>Side 3</dt>
+                    <input type="text" id="txtSide3" class="form-control" placeholder="Enter Side 3">
+                </dl>
+                <div>
+                    <button onclick="AreaClick()" class="btn btn-warning">Find The Area</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-6 p-5 ">
+                    <img style="display: none;" id="lblImg" width="300" height="300">
+                    <br><br>
+                    <p class="h1" id="lblResult"></p>
+        </div>
+
+    </div>
+    
+    
+   
+</body>
+</html>

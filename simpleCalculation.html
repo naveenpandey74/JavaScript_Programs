@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Calculation </title>
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
+    <script>
+            function AddClick(){ 
+            var firstNumber =parseInt(document.getElementById("txtfirst").value);
+            var secondNumber = parseInt(document.getElementById("txtSecond").value);
+            var result =  firstNumber + secondNumber;
+            document.getElementById("lblResult").innerHTML = `${result}`;
+            document.getElementById("result").style.display = "block";
+           }
+           function SubClick(){
+            var firstNumber =parseInt(document.getElementById("txtfirst").value);
+            var secondNumber = parseInt(document.getElementById("txtSecond").value);
+            var result = firstNumber - secondNumber;
+            document.getElementById("lblResult").innerHTML = `${result}`;
+            document.getElementById("result").style.display = "block";
+           }
+           function MulClick(){
+            var firstNumber =parseInt(document.getElementById("txtfirst").value);
+            var secondNumber = parseInt(document.getElementById("txtSecond").value);
+            var result = firstNumber * secondNumber;
+            document.getElementById("lblResult").innerHTML = `${result}`;
+            document.getElementById("result").style.display = "block";
+           }
+           function DivClick(){
+            var firstNumber =parseInt(document.getElementById("txtfirst").value);
+            var secondNumber = parseInt(document.getElementById("txtSecond").value);
+            var result = firstNumber / secondNumber;
+            document.getElementById("lblResult").innerHTML = `${result}`;
+            document.getElementById("result").style.display = "block";
+           }
+    </script>
+</head>
+<body class="container-fluid">
+    <div class="border border-black  w-50 p-5 bg-dark text-white rounded">
+         <h1 class="text-center">Simple Calculation</h1>
+         <br>
+        <div class="border  border-1 p-4 w-25 bg-warning text-white" id="result" style="display: none;">
+            <h1 class="text-center" id="lblResult"></h1>
+          </div>
+          <br><br>
+          <h2>Enter Numbers</h2>
+          <div class="w-50 d-flex">
+            <input type="text" class="form-control w-25" id="txtfirst" placeholder="1st">
+            <input type="text" class="form-control w-25" id="txtSecond" placeholder="2nd">
+          </div>
+          <br><br>
+          <div>
+            <button onclick="AddClick()" class="btn btn-danger">Add</button>
+            <button onclick="SubClick()" class="btn btn-primary">Subtract</button>
+            <button onclick="MulClick()" class="btn btn-warning">Multiple</button>
+            <button onclick="DivClick()" class="btn btn-info">Divide</button>
+          </div>
+    </div>
+     
+</body>
+</html>

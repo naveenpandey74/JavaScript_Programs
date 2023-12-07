@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SpeedCalculator</title>
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
+    <script>
+        function SpeedClick(){
+            var distance = document.getElementById("txtDistance").value;
+            var time = document.getElementById("txtTime").value;
+            var speed = distance/time;
+            document.getElementById("lblSpeed").innerHTML = `Speed : ${speed} km/hr`.bold().fontsize("10px");
+        }
+    </script>
+    
+</head>
+<body class="container-fluid">
+    <div class="d-flex justify-content-center">
+        <div class="w-25 mt-5 border border-2 p-4 rounded">
+            <h3 class="text-center">Speed Calculator</h3>
+                  <dl>
+                    <dt>Distance</dt>
+                    <dd><input type="text" id="txtDistance" class="form-control"></dd>
+                    <dt>Time</dt>
+                    <dd><input type="text" id="txtTime" class="form-control"></dd>
+                  </dl>
+                  <button onclick="SpeedClick()" class="btn btn-warning">Find Speed</button>
+                  <div>
+                    <p id="lblSpeed"></p>
+                  </div>
+          </div>
+         
+    </div> 
+</body>
+</html>
