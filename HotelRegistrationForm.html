@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
+    <script>
+         function RegisterClick(){
+            document.getElementById("lblName").innerHTML = document.getElementById("lstName").value;
+            document.getElementById("lblDate").innerHTML = document.getElementById("lstDate").value;
+            document.getElementById("lblDays").innerHTML = document.getElementById("lstDays").value;
+            document.getElementById("lblPersons").innerHTML= document.getElementById("lstPersons").value;
+            document.getElementById("AdvAmount").innerHTML = document.getElementById("lstAdvance").value;
+
+           var AdvanceAmount = document.getElementById("lstAdvance").value;
+           var TotalDays = document.getElementById("lstDays").value;
+           var optDelux = document.getElementById("lstDelux");
+           var optSuite = document.getElementById("lstSuite");
+           var AC = document.getElementById("lstAC");
+           var Locker = document.getElementById("lstLocker");
+           var Persons = document.getElementById("lstPersons").value;
+
+          
+           
+           var total = 0;
+           var RoomCost = 0;
+           var AmenitiesCost = 0;
+           var DeluxRoom = 2500;
+           var SuiteRoom = 4000;
+           var AcCost= 1000;
+           var LockerCost = 300;
+           var Balance = 0;
+           
+           if(optDelux.checked){
+            document.getElementById("lblRoom").innerHTML = optDelux.value;
+            RoomCost+=2500;
+           }
+           if(optSuite.checked){
+            document.getElementById("lblRoom").innerHTML = optSuite.value;
+            RoomCost+=4000;
+           }
+           if(AC.checked){
+            document.getElementById("Amenities").innerHTML = AC.value;
+             AmenitiesCost += AcCost;
+           }
+           if(Locker.checked){
+            document.getElementById("Amenities").innerHTML = Locker.value;
+            AmenitiesCost += LockerCost;
+           }
+           Total = (RoomCost+AmenitiesCost)*TotalDays;
+           document.getElementById("Balance").innerHTML = Total;
+
+           Balance = (Total-AdvanceAmount);
+           document.getElementById("Balance").innerHTML = Balance;
+
+           
+         }
+       
+    </script>
+</head>
+<body class="container-fluid">
+     
+    <h1 class="text-center bg-dark text-warning m-4 p-4">Hotel Registration Form</h1>
+    <div class="d-flex justify-content-center bg-dark-subtle ms-4 me-4 p-4 border border-1">
+      <div>
+        <ul class="nav nav-pills w-100 bg-dark p-3 rounded rounded-pill m-4">
+          <li class="nav-item"><a href="#home" data-bs-toggle="tab" class="nav-link active">Customer Info</a></li>
+          <li class="nav-item"><a href="#lstopt1" data-bs-toggle="tab" class="nav-link">Select Room Type</a></li>
+          <li class="nav-item"><a href="#lstopt2" data-bs-toggle="tab" class="nav-link">Select Amenities</a></li>
+          <li class="nav-item"><a href="#AdvancePay" data-bs-toggle="tab" class="nav-link">Advance Amount</a></li>
+      </ul>
+      <div class="tab-content text-center">
+          <div class="tab-pane active w-100" id="CustomerInfo">
+                  <dt>Customer Name</dt>
+                  <dd><input class="form-control w-100" id="lstName" type="text"></dd>
+                  <dt>Check in Date</dt>
+                  <dd><input class="form-control w-100" id="lstDate" type="date"></dd>
+                  <dt>Total No of Days</dt>
+                  <dd><input class="form-control w-100" id="lstDays" type="number"></dd>
+                  <dt>Total No of Persons</dt>
+                  <dd><input class="form-control w-100" id="lstPersons" type="number"></dd>
+          </div>
+          <div class="tab-pane" id="lstopt1">
+            <div class="p-2">
+              <div>
+                <img src="public/images/delux.jpg" width="100" height="100">
+              <input type="radio" class="form-check-input" id="lstDelux" name="Room" value="Delux Room" name="roomType"><label class="form-label ms-2  fw-bold">Delux Room</label>
+              </div>
+              <div class="mt-2">
+                <img src="public/images/suite.jpg" width="100" height="100">
+              <input type="radio" class="form-check-input" value="Suite Room" name="Room" id="lstSuite" name="roomType"><label class="form-label fw-bold ms-2">Suite Room</label>
+              </div>
+              
+              
+          </div>
+             
+          </div>
+          <div class="tab-pane" id="lstopt2"><br>
+            <div>
+              <input type="checkbox" class="form-check-input" value="A/C" name="Amenities" id="lstAC"><label>A/C</label>
+              <input type="checkbox"  class="form-check-input" id="lstLocker" value="Locker" name="Amenities"><label>Locker</label>
+          </div>
+          </div>
+          <div class="tab-pane" id="AdvancePay">
+            <dt>Advance Amount</dt>
+            <dd><input required id="lstAdvance" class="form-control w-100" type="number"></dd>
+           
+          </div>
+         </div>
+         <div class="text-center">
+          <button data-bs-target="#details" data-bs-toggle="modal" class="btn btn-warning w-100" onclick="RegisterClick()">Register</button>
+          <div class="modal fade" id="details">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                  <div class="modal-header">
+                   <h3 class="text-info text-center fw-bold">Booking Details</h3>
+                   <button class="btn btn-close" data-bs-dismiss="modal"></button>
+                  </div>
+                  <div class="modal-body">
+                    <dl>
+                      <dt>Customer Name</dt>
+                      <dd id="lblName"></dd>
+                      <dt>Check in Date</dt>
+                      <dd id="lblDate"></dd>
+                      <dt>Total No of Days</dt>
+                      <dd id="lblDays"></dd>
+                      <dt>Total No of Persons</dt>
+                      <dd id="lblPersons"></dd>
+                      <dt>Room Type</dt>
+                      <dd id="lblRoom"></dd>
+                      <dt>Amenities</dt>
+                      <dd id="Amenities"></dd>
+                      <dt>Advance Amount</dt>
+                      <dd id="AdvAmount"></dd>
+                      <dt>Balance Amount</dt>
+                      <dd id="Balance"></dd>
+                  </dl>
+
+                  </div>
+                  <div class="modal-footer">
+                       <button data-bs-dismiss="modal" class="btn btn-warning w-100">Submit</button>
+                  </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+      
+    </div>
+    
+    
+
+    <script src="node_modules/jquery/dist/jquery.js"></script>
+    <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+</body>
+</html>
